@@ -1,0 +1,38 @@
+General procedures to deploy lab within a container:
+
+1. Login to base1 machine by ssh username@10.4.12.21
+	Example: ssh yogesh@10.4.12.21
+
+2. Become a root user using the command "sudo su -"
+
+3. To see the running containers execute "vzlist"
+
+4. You can see the available os templates inside /vz/template/cache
+
+5. Then create the container with a new id, which is followed by previous CTID's.
+   Ipaddress: Format for ip address is 10.4.(first two digit of CTID).(digits after two digits fo CTID)
+	Example: vzctl create 14191 --ostemplate ubuntu-12.04-x86-64-proxy-apache-php-git --ipadd 10.4.14.191 --hostname nitk.test.vlabs.in
+
+6. Add nameserver for the container:
+	Example: vzctl set --nameserver 10.4.12.157
+	Note: This step may not be required if you have used pre-configured os template.
+
+7. Start the container by vzctl start CTID
+	Example: vzctl start 14191
+
+8. Enter inside the container using command "vzctl enter CTID"
+	Example: vzctl enter 14191
+
+9. Now you are inside the container, clone the source code of the lab from bitbucket into /home/developer folder. Before cloning you may want to check the size of the lab, 
+   and accordingly change the diskspace of the containter. To check the lab size type "du -sh labdirectory", and you can check the container size in /etc/vz/conf/14192.conf file.
+	Example: git clone https://yogeshiiith@bitbucket.org/virtuallabs/cse07-firstmining.git
+
+10. Check dependencies for the labs in the file dependencies.txt which is usually present in scripts directory, and install all the dependencies. Or if initialise script is there run
+    that one, instead of manually installing. 
+
+12. Make sure to restart Apache Server.
+
+13. The last step may be to move the content of build folder to /var/www, if it is not already moved. And also run chmod 777 to give permission to folders.
+
+
+							

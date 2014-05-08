@@ -1,0 +1,87 @@
+
+Procedure to deploy Database lab within a container:
+
+1. Login to base1 machine by ssh username@10.4.12.21
+	e.g.	ssh yogesh@10.4.12.21
+
+2. Become a root user by
+	sudo su -
+
+3. To see the running containers execute
+	vzlist
+
+4. You can see the available os templates inside /vz/template/cache
+
+5. Then create the container with a new id, which is followed by previous CTID's.
+	Ipaddress: Format for ip address is 10.4.(first two digit of CTID).(digits after two digits fo CTID)
+
+	e.g.	vzctl create 14192 --ostemplate ubuntu-12.04-x86-64-proxy-apache-php-git --ipadd 10.4.14.192 --hostname database.test.vlabs.in
+
+6. Add nameserver for the container:
+	e.g.	vzctl set --nameserver 10.4.12.157
+
+	This step may not be required if you have used pre-configured os template.
+
+7. Start the container by vzctl start CTID
+	e.g.	vzctl start 14192
+
+8. Increase the diskspace to 7G by "vzctl set CTID --diskspace 7G --save" command.
+
+9. Enter inside the container by vzctl enter CTID
+	e.g.	vzctl enter 14192
+
+10. Create a user "developer" using "sudo adduser developer" command. And choose the password as "developer123". Then add that user to sudoers list by "sudo adduser developer sudo" command.
+
+11. Set the proxy setttings in .bashrc file by adding following four lines at the end:
+	export http_proxy="http://proxy.iiit.ac.in:8080"
+	export https_proxy="http://proxy.iiit.ac.in:8080"
+	export HTTP_PROXY="http://proxy.iiit.ac.in:8080"
+	export HTTPS_PROXY="http://proxy.iiit.ac.in:8080"
+
+	And also set the apt proxy in /etc/apt/apt.conf file by adding following two lines:
+	acquire::http::proxy "http://proxy.iiit.ac.in:8080";
+	acquire::https::proxy "http://proxy.iiit.ac.in:8080";
+
+12. If you normally use sudo to run apt-get you will need to login as root first for this to work you also need to add some explicit environment settings to /etc/sudoers:
+	Defaults env_keep = "http_proxy https_proxy ftp_proxy"
+
+13. Become a developer user by "su -l developer", this will take you to developer home folder.
+
+14. Set the proxy settings in .bashrc file for this user by adding following four lines at the end:
+	export http_proxy="http://proxy.iiit.ac.in:8080"
+	export https_proxy="http://proxy.iiit.ac.in:8080"
+	export HTTP_PROXY="http://proxy.iiit.ac.in:8080"
+	export HTTPS_PROXY="http://proxy.iiit.ac.in:8080"
+
+15. Run "sudo apt-get update", and install git by "sudo apt-get git -y".
+
+16. Create a src folder inside home directory of developer user by "mkdir src".
+
+17. Now clone the source code of the lab from bitbucket into "src" folder. 
+	e.g.	git clone https://yogeshiiith@bitbucket.org/virtuallabs/cse06-cse06-07.git
+
+18. Install all the dependencies from the dependencies.txt file present inside scripts folder, using "sudo apt-get install".
+
+19. You need to install "python-software-properties" to be able to ppa to apt-get sources by "sudo apt-get install python-software-properties"
+
+19. To install sage add the ppa and then after update install sage.
+	apt-add-repository -y ppa:aims/sagemath
+	apt-get update
+
+20. Sagemath seems to be depending on one package "dvipng", so we installed first this, using "sudo apt-get install dvipng".
+	
+21. And then actual sage server using "apt-get install sagemath-upstream-binary". This process takes usually around 25 mins.
+
+22. Runt the makefile, present inside src dir by "make all -C ./src".
+
+23. Modify python-scripts/start_sage.sh file, as follows:
+	#!/bin/bash
+	# Creating Sage notebook
+	#cd
+	#cd sage
+	screen -S "Sage_Server" sage -c 'notebook(interface="10.4.14.194",port=80,accounts=true)'
+	
+	Please note the address specifed in interface parameter, it is same as your container ip. In order to run sage-server this script should continuously be running, so one way is to
+	run it in background.
+
+

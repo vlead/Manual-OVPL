@@ -1,0 +1,66 @@
+
+NIT-K labs deployment
+
+On Base2 there is an inactive container that still holds sources for labs:
+  ctid: 12199, ip-addr: 10.4.12.199,  name: sources.virtual-labs.ac.in
+You may want to start the container before navigating. The lab sources are organized as follows:
+ 
+   labs/chem05/bzr
+      |-- nitk/trunk
+            |-- README.txt
+            |-- scripts
+            |-- src
+            |-- suratkal
+      |-- suratkal
+
+
+We need to build the contents of this dorectory: /labs/chem05/bzr/nitk/trunk/suratkal
+
+IMPORTANT: We need to first increase the target container's disk space to about 8GB before copying the contents. 
+  vzctl set 14186 --diskspace 5G
+
+IMPORTANT: 
+We see a new requirement in the case of labs that are content heavy, much like this NITK lab. It is not necessary for a lab's content to come from a Git repository. We need to accommodate cases where the content needs to be either copied from a remote location (scp, wget, curl, ftp, sftp, ...). We need to have a method in labspec to take care of this aspect.
+
+
+
+(1)
+set http_proxy and https_proxy in /etc/apt/apt.conf.
+Add the following two lines
+acquire::http::proxy "http://proxy.iiit.ac.in:8080";
+acquire::https::proxy "http://proxy.iiit.ac.in:8080";
+
+(2)
+If you normally use sudo to run apt-get you will need to login as root first for this to work unless you also add some explicit environment settings to /etc/sudoers:
+Defaults env_keep = "http_proxy https_proxy ftp_proxy"
+
+(3)
+Runtime requirements
+apt-get install php5
+apt-get install mysql-server
+apt-get install phpmyadmin
+apt-get install apache2
+
+    (a) While installing mysql-server you will be prompted for a password. Be consistent in the password you provide. We have used 'Suratkal' as the password everywhere.
+
+    (b) Enter the following line in /etc/apache2/apache2.conf
+        Include /etc/phpmyadmin/apache.conf
+
+(4) sudo adduser developer sudo
+
+(5)
+Initialize the database that holds the lab's content. 
+    mysql -u root -p -Bse "CREATE DATABASE suratkal" 
+    mysql -u root -p suratkal < backup/suratkal.sql
+
+
+Suggested Changes and Enhancements to the Deployment Procedure
+(1) We need to modify makefile so that the contents of src/solve directory are MOVED to /var/www directory. Currently, a directory named 'build' is crated in /var/www. This is not required.
+
+(2) Note that in (1) above, we recommend moving content instead of copying 
+
+(3) As a part of the lab initialization procedure we need to have scripts that create MySql database and update apach2.conf etc.
+
+
+ 
+
