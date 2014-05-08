@@ -19,3 +19,4 @@ e. OS template to be used while creating containers.
 	Example: Depending on the lab we need to select OS template. If a lab requires mysql we will choose the mysql customized template.
 
 
+
