@@ -34,7 +34,7 @@ IIT Gauhati
 
 
 Dayalbagh University
-    Metal Forming and Solid Mechanics--> Not in Level5, Not Hosted.
+    Metal Forming and Solid Mechanics--> Not in Level5, Hosted.
     https://bitbucket.org/virtuallabs/mech26-mech26
 
     Virtual Microwave Laboratory--> Not in Level5, Not Hosted
