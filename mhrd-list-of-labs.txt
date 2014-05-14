@@ -1,35 +1,35 @@
 
 IIT Delhi
-    Virtual Queuing Networks Modelling--> Not in Level5, Hosted
+    Virtual Queuing Networks Modelling--> Not in Level5, Hosted, Labspec updated.
     https://bitbucket.org/virtuallabs/ece21-ece21/
 
 IIT Kanpur
-    Ultra-fast laser spectroscopy--> Not in Level5, Hosted
+    Ultra-fast laser spectroscopy--> Not in Level5, Hosted, Labspec updated
     https://bitbucket.org/virtuallabs/chs13-chs13
 
-Virtual Astrophysics Lab--> Level5, Hosted
+Virtual Astrophysics Lab--> Level5, Hosted, Labspec updated
     https://bitbucket.org/virtuallabs/phy01-phy01
 
 IIT Bombay
-    Traffic Engineering--> Not in Level5, Hosted
+    Traffic Engineering--> Not in Level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/civil09-trafficengg/
 
 IIT Kharagpur
-    Computer Organization and Architecture--> Not in Level5, Hosted
+    Computer Organization and Architecture--> Not in Level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/cse10-cse10
 
 IIT Madras
-    Aerospace Structures Lab---> Not in Level5, Hosted
+    Aerospace Structures Lab---> Not in Level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/ae01-aero/
 
 IIT Gauhati
-    Digital VLSI Design Lab---> Not in Level5, Hosted
+    Digital VLSI Design Lab---> Not in Level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/ece05-vlsi_vlab
 
-    Electrical Machines (Madhavi)-->Level5, Hosted
+    Electrical Machines (Madhavi)-->Level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/eee02-eee02
 
-    Creative Design, Prototyping & Experiential Simulation Lab--> Not in Level5, Hosted
+    Creative Design, Prototyping & Experiential Simulation Lab--> Not in Level5, Hosted, Labspec Not present.
     https://bitbucket.org/virtuallabs/hss01-hss01/
 
 
@@ -37,30 +37,31 @@ Dayalbagh University
     Metal Forming and Solid Mechanics--> Not in Level5, Not Hosted.
     https://bitbucket.org/virtuallabs/mech26-mech26
 
-    Virtual Microwave Laboratory--> Not in Level5, Not Hosted
+    Virtual Microwave Laboratory--> Not in Level5, Not Hosted, (sql needed)
     https://bitbucket.org/virtuallabs/phy12-phy12
 
 COE Pune
-    Hybrid Electronics--> Level5, Hosted.
+    Hybrid Electronics--> Level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/ece10-ece10
 
-    Vibration and acoustics-->Level5, Hosted.
+    Vibration and acoustics-->Level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/mech04-vibration
 
-    Fab laboratory-->Level5, Hosted.
+    Fab laboratory-->Level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/mech18-fab
 
-NIT Karnataka-->Level5, Hosted.
-    https://bitbucket.org/virtuallabs/chem05-suratkal
+NIT Karnataka-->Level5, Hosted, Labspec Updated.
+    #https://bitbucket.org/virtuallabs/chem05-suratkal
+    https://bitbucket.org/virtuallabs/chem05-nitk
 
 IIIT-H
-    Colloid and Surface Chemistry-->Level5, Hosted
+    Colloid and Surface Chemistry-->Level5, Hosted, Labpec Updated.
     https://bitbucket.org/virtuallabs/ccnsb02-repo_lab2_mod
 
-    Data Structures-->Level5, Hosted
+    Data Structures-->Level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/cse01-ds_new
 
-    Computer Programming-->Level5, Hosted
+    Computer Programming-->Level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/cse02-programming
 
     Data Mining-->Level5, Hosted
@@ -69,28 +70,28 @@ IIIT-H
     Databases-->Level5, Hosted
     https://bitbucket.org/virtuallabs/cse06-cse06-07
 
-    Hydraulics and Fluid Mechanics-->Not in Level5, Hosted
+    Hydraulics and Fluid Mechanics-->Not in Level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/eerc03-cevl2
 
-    Advanced VLSI -->Level5, Hosted
+    Advanced VLSI -->Level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/cse13-advanced_vlsi
 
-    Digital Logic Design-->Level5, Hosted
+    Digital Logic Design-->Level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/cse15-repo_dld
 
     Mobile Robotics-->Level5, Hosted
-    https://bitbucket.org/virtuallabs/cse17-final
+    https://bitbucket.org/virtuallabs/cse17-final, Labspec Updated.
 
-    Image Processing-->Level5, Hosted
+    Image Processing-->Level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/cse19-cse19a
 
-    Natural Language Processing            ---> Not in level5, Hosted
+    Natural Language Processing            ---> Not in level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/cse24-nlp-vlab2
 
-    Electro Magnetic Theory--> Not in level5, Hosted
+    Electro Magnetic Theory--> Not in level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/emt-emt_new
 
-    Soil Mechanics and Foundation Engineering--> Not in level5, Hosted
+    Soil Mechanics and Foundation Engineering--> Not in level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/eerc02-cevl1
     
 
