@@ -1,0 +1,10 @@
+
+Problems:
+
+1. Electrical machines lab has two lab ids, eee02 and eee10. Both are not hosted.
+	eee02 - Unable to clone the resources.
+	eee10 - 
+
+2. Hybrid Electronics lab (ece19), is ovpl hosted. But in our mhrd list, Hybrid electronics was present with id ece10. So we checked in the ovpl hosted document by the lab name and 	found that lab is hosted. But actually ece10 is not hosted.
+
+3. Electromagnetics Theory lab is not hosted properly, it requires some other dependencies java, mysql. So host it again.
