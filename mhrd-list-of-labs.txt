@@ -27,7 +27,7 @@ IIT Gauhati
     https://bitbucket.org/virtuallabs/ece05-vlsi_vlab
 
     Electrical Machines (Madhavi)-->Level5, Hosted, Labspec Updated.
-    https://bitbucket.org/virtuallabs/eee02-eee02
+    https://bitbucket.org/virtuallabs/eee10-electrical-machines
 
     Creative Design, Prototyping & Experiential Simulation Lab--> Not in Level5, Hosted, Labspec Not present.
     https://bitbucket.org/virtuallabs/hss01-hss01/
@@ -42,7 +42,7 @@ Dayalbagh University
 
 COE Pune
     Hybrid Electronics--> Level5, Hosted, Labspec Updated.
-    https://bitbucket.org/virtuallabs/ece10-ece10
+    https://bitbucket.org/virtuallabs/ece19-hybrid-elec-repo
 
     Vibration and acoustics-->Level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/mech04-vibration
