@@ -58,9 +58,6 @@ COE Pune
     Sensors Modelling & Simulation (COE-Pune) ---> Not Hosted , labspec not updated
     https://virtuallabsadmin@bitbucket.org/virtuallabs/eee05-eee05-bzr-repo.git
 
-    Molecular Absorption Spectroscopy (IIIT-H) ---> Not Hosted, labspec not updated.
-    https://virtuallabsadmin@bitbucket.org/virtuallabs/ccnsb03-repo_lab3_mod.git
-
 
 NIT Karnataka-->Level5, Hosted, Labspec Updated.
     #https://bitbucket.org/virtuallabs/chem05-suratkal
@@ -106,4 +103,5 @@ IIIT-H
     Soil Mechanics and Foundation Engineering--> Not in level5, Hosted, Labspec Updated.
     https://bitbucket.org/virtuallabs/eerc02-cevl1
     
-
+    Molecular Absorption Spectroscopy (IIIT-H) ---> Not Hosted, labspec not updated.
+    https://virtuallabsadmin@bitbucket.org/virtuallabs/ccnsb03-repo_lab3_mod.git
