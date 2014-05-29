@@ -1,0 +1,37 @@
+
+
+Steps to follow while creating the container:
+
+1. vzctl create 14187 --ostemplate ubuntu --ipadd 10.4.14.187 --hostname nitk-replicate-labs.test.vlabs.in --nameserver 10.4.12.157
+
+2. vzctl set 14187 --diskspace 8G
+
+3. copied the source code from 14186 container, or clone it from https://yogeshiiith@bitbucket.org/virtuallabs/chem05-nitk.git
+
+4. vzctl start 14187
+
+5. vzctl enter 14187
+
+6. sudo adduser developer
+		passwd developer123
+
+7. sudo adduser developer sudo
+
+8. set http_proxy and https_proxy in /etc/apt/apt.conf by adding the following two lines:
+
+	acquire::http::proxy "http://proxy.iiit.ac.in:8080";
+	acquire::https::proxy "http://proxy.iiit.ac.in:8080";
+
+9. apt-get install php5 mysql-server phpmyadmin apache2 -Y
+	password suratkal
+
+10. Enter the following line in /etc/apache2/apache2.conf
+        "Include /etc/phpmyadmin/apache.conf"
+
+11. Initialize the database that holds the lab's content, as a root. 
+    mysql -u root -p -Bse "CREATE DATABASE suratkal" 
+    mysql -u root -p suratkal < backup/suratkal.sql
+
+12. change the password to 'suratkal' in configuration.php present inside solve dir.
+
+13. Modify makefile present inside solve to replace copy command(cp) with move command(mv), and then run this makefile.

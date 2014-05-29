@@ -1,0 +1,61 @@
+
+Procedure to deploy Database lab within a container:
+
+1. Login to base1 machine by ssh username@10.4.12.21
+	e.g.	ssh yogesh@10.4.12.21
+
+2. Become a root user by
+	sudo su -
+
+3. To see the running containers execute
+	vzlist
+
+4. You can see the available os templates inside /vz/template/cache
+
+5. Then create the container with a new id, which is followed by previous CTID's.
+	Ipaddress: Format for ip address is 10.4.(first two digit of CTID).(digits after two digits fo CTID)
+
+	e.g.	vzctl create 14192 --ostemplate ubuntu-12.04-x86-64-proxy-apache-php-git --ipadd 10.4.14.192 --hostname database.test.vlabs.in
+
+6. Add nameserver for the container:
+	e.g.	vzctl set --nameserver 10.4.12.157
+
+	This step may not be required if you have used pre-configured os template.
+
+7. Start the container by vzctl start CTID
+	e.g.	vzctl start 14192
+
+8. Enter inside the container by vzctl enter CTID
+	e.g.	vzctl enter 14192
+
+9. Now you are inside the container, clone the source code of the lab from bitbucket into /home/developer folder. Before cloning you may want to check the size of the lab, and
+   accordingly change the diskspace of the containter. To check the lab size type "du -sh labdirectory", and you can check the container size in /etc/vz/conf/14192.conf file.
+
+	e.g.	git clone https://yogeshiiith@bitbucket.org/virtuallabs/cse06-cse06-07.git
+
+
+10. Disk space got filled, so increased the diskspace to 4G using vzctl set 14192 --diskspace 4G --save command.
+
+11. Install all the dependencies from the dependencies.txt file present inside scripts folder, using sudo apt-get install.
+
+12. Sage installation gets failed due to disk space deficit. So increased disk space to 7 GB.
+
+13. Modified path for make command in sage-install script. And then run sage-install script. This process takes more than 7 hrs.
+
+14. Starting sage by running python-scripts/start_sage file.
+
+15. /var/www got deleted, after sage installation. So installing apache2 again. Ran scripts/build.sh file. 
+
+16. Modified python scripts build and create_sagenb and then run it.
+
+
+
+Tasks:
+
+1. Template for database containing sage installed with all the redirection done.
+
+2. Daemon for sage, put the start of sage in init.
+
+3. Update labspec for nitk, database, 
+
+4. Do we need developer user now, as ovpl has to create the user if it is not using the customized template ?

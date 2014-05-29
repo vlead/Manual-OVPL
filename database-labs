@@ -62,24 +62,34 @@ Procedure to deploy Database lab within a container:
 
 18. Install all the dependencies from the dependencies.txt file present inside scripts folder, using "sudo apt-get install".
 
-19. You need to install "python-software-properties" to be able to ppa to apt-get sources by "sudo apt-get install python-software-properties"
+19. You need to install "python-software-properties" to be able to add ppa to apt-get sources by "sudo apt-get install python-software-properties"
 
 19. To install sage add the ppa and then after update install sage.
-	apt-add-repository -y ppa:aims/sagemath
-	apt-get update
+	"sudo apt-add-repository -y ppa:aims/sagemath"
+	"sudo apt-get update"
 
 20. Sagemath seems to be depending on one package "dvipng", so we installed first this, using "sudo apt-get install dvipng".
 	
-21. And then actual sage server using "apt-get install sagemath-upstream-binary". This process takes usually around 25 mins.
+21. And then actual sage server using "sudo apt-get install sagemath-upstream-binary". This process takes usually around 25 mins.
 
-22. Runt the makefile, present inside src dir by "make all -C ./src".
+22. Modify the create_sagenb as follows:
+#!/bin/bash
+# Creating Sage notebook
+#cd
+#cd sage
+screen -S "Sage_Server" sage -c 'notebook(interface="",directory="/root/.sage/sage_notebook.sagenb",port=80,accounts=true)'
 
-23. Modify python-scripts/start_sage.sh file, as follows:
+And then run the create_sagenb script. It will ask for the password, give it as "sage123"
+
+23. Runt the makefile, present inside src dir by "make all -C ../src".
+
+24. Modify python-scripts/start_sage file, as follows:
 	#!/bin/bash
 	# Creating Sage notebook
 	#cd
 	#cd sage
-	screen -S "Sage_Server" sage -c 'notebook(interface="10.4.14.194",port=80,accounts=true)'
+	address=$(hostname --ip-address)
+	screen -S "Sage_Server" sage -c "notebook(interface=" "'$address'" ",port=80,accounts=true)"
 	
 	Please note the address specifed in interface parameter, it is same as your container ip. In order to run sage-server this script should continuously be running, so one way is to
 	run it in background.

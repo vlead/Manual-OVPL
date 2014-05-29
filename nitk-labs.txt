@@ -32,7 +32,7 @@ acquire::https::proxy "http://proxy.iiit.ac.in:8080";
 
 (2)
 If you normally use sudo to run apt-get you will need to login as root first for this to work unless you also add some explicit environment settings to /etc/sudoers:
-Defaults env_keep = "http_proxy https_proxy ftp_proxy"
+Defaults env_keep = "http_proxy https_proxy ftp_proxy"	
 
 (3)
 Runtime requirements

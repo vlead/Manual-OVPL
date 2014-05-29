@@ -1,0 +1,39 @@
+Hosting Metal Forming and Solid Mechanics
+https://bitbucket.org/virtuallabs/mech26-mech26
+
+
+1. Install apache2 and php5.
+
+2. Move the content of mech26-mech26/lab/maflab to /var/www/.
+
+3. You need to make home.php as default page for apache. To do this add following line 
+"DirectoryIndex home.php"
+in /etc/apache2/httpd.conf file.
+
+
+
+Another way:
+
+1. Clone source code.
+
+2. If apache is pre installed in the template make sure to uninstall it before installing xampp, by following steps:
+	sudo apt-get remove apache2
+	sudo apt-get purge apache2*
+	sudo apt-get autoremove
+	sudo apt-get update
+
+3. You need to install "python-software-properties" to be able to add ppa to apt-get sources by "sudo apt-get install python-software-properties"
+
+4. Installing xampp
+sudo add-apt-repository ppa:upubuntu-com/web
+sudo apt-get update
+sudo apt-get install xampp
+
+5. You need to make home.php as default page for apache. To do this add the following line in /opt/lampp/etc/httpd.conf file.
+"DirectoryIndex home.php"
+
+Also to disable the directory browsing you should replace "Indexes" term with "-Indexes", in same httpd.conf file.
+
+6. Place the content of mfvlab inside /opt/lampp/htdocs.
+
+7. Restart the xampp by "sudo /opt/lampp/lampp restart"
