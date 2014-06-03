@@ -4,7 +4,7 @@ https://bitbucket.org/virtuallabs/mech26-mech26
 
 1. Install apache2 and php5.
 
-2. Move the content of mech26-mech26/lab/maflab to /var/www/.
+2. Move the content of mech26-mech26/lab/mfvlab to /var/www/.
 
 3. You need to make home.php as default page for apache. To do this add following line 
 "DirectoryIndex home.php"
