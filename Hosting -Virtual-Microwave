@@ -10,12 +10,17 @@ Hosting Virtual Microwave Laboratory
 	sudo apt-get autoremove
 	sudo apt-get update
 
-3. You need to install "python-software-properties" to be able to add ppa to apt-get sources by "sudo apt-get install python-software-properties"
-
 4. Installing xampp
-	sudo add-apt-repository ppa:upubuntu-com/web
-	sudo apt-get update
-	sudo apt-get install xampp
+
+	64bit:
+		1.sudo apt-get install python-software-properties
+		2.sudo add-apt-repository ppa:upubuntu-com/web
+		3.sudo apt-get update
+		4.sudo apt-get install xampp
+		
+	32bit:
+		1. Download xampp-1.7.7 http://sourceforge.net/projects/xampp/files/XAMPP%20Linux/1.7.7/
+		2. sudo tar -xvzf xampp-linux-1.7.7 -C /opt
 
 5. You need to make home.php as default page for apache. To do this add the following line in /opt/lampp/etc/httpd.conf file.
 	"DirectoryIndex home.php"
@@ -54,9 +59,3 @@ Hosting Virtual Microwave Laboratory
 	chmod -R +x *
 	
 14. Your lab is now running at ip/projects/virtual_labs.
-
-
-
-
-
-
