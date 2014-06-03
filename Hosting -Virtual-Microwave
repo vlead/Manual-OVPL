@@ -2,19 +2,6 @@ Hosting Virtual Microwave Laboratory
     https://bitbucket.org/virtuallabs/phy12-phy12
 
 
-
-1. Install apache2 and php5.
-
-2. Move the content of mech26-mech26/lab/maflab to /var/www/.
-
-3. You need to make home.php as default page for apache. To do this add following line 
-"DirectoryIndex home.php"
-in /etc/apache2/httpd.conf file.
-
-
-
-Another way:
-
 1. Clone source code.
 
 2. If apache is pre installed in the template make sure to uninstall it before installing xampp, by following steps:
@@ -26,26 +13,50 @@ Another way:
 3. You need to install "python-software-properties" to be able to add ppa to apt-get sources by "sudo apt-get install python-software-properties"
 
 4. Installing xampp
-sudo add-apt-repository ppa:upubuntu-com/web
-sudo apt-get update
-sudo apt-get install xampp
+	sudo add-apt-repository ppa:upubuntu-com/web
+	sudo apt-get update
+	sudo apt-get install xampp
 
 5. You need to make home.php as default page for apache. To do this add the following line in /opt/lampp/etc/httpd.conf file.
-"DirectoryIndex home.php"
+	"DirectoryIndex home.php"
+  Also to disable the directory browsing you should replace "Indexes" term with "-Indexes", in same httpd.conf file.
 
-Also to disable the directory browsing you should replace "Indexes" term with "-Indexes", in same httpd.conf file.
+6. Now you need to set the mysql password which is not set by default. To do this follow following steps:
+	1. sudo /opt/lampp/lampp stop.
+	2. sudo /opt/lampp/sbin/mysqld --skip-grant-tables --skip-networking &
+	3. /opt/lampp/bin/mysql -u root
+	4. flush privileges;
+	5. set password for root@'localhsot' = password('root');
+	6. update mysql.user set password=password('root') where user='root';
+	7. flush privileges;
 
-6. Place the content of mfvlab inside /opt/lampp/htdocs.
+7. Now restart xampp server /opt/lampp/lampp restart.
 
-7. Restart the xampp by "sudo /opt/lampp/lampp restart"
+8. Create database by the name "sandeep4_virtual" in mysqldb.
 
-8. Edit following things in config_file.php in ./includes/ dir.
+9. Restore database "/opt/lampp/bin/mysql -u root -p sandeep4_virtual < sandeep4_virtual.sql"
 
-	define('DB_HOST','localhost');							----> To be kept localhost
-	define('DB_USER','root');								----> Replace root with your database username
-	define('DB_PASSWORD','password');						----> Put the database password here.
-	define('DB_DATABASE','virtual_labs');					----> Put the database name here
+10. Create a folder by name "projects", in /opt/lampp/htdocs dir. And place the src code "virtual_labs" folder here.
+
+11. Edit following things in config_file.php in /opt/lampp/htdocs/projects/virtual_labs/includes/ dir.
+
+	define('DB_HOST','localhost');				----> To be kept localhost
+	define('DB_USER','root');				----> Replace root with your database username
+	define('DB_PASSWORD','root');				----> Put the database password here.
+	define('DB_DATABASE','sandeep4_virtual');		----> Put the database name here
 	define('SERVER_URL','http://www.websupplements.net');	----> Put only the domain name here without any slashes
-	define('APP_FOL','/projects/virtual_labs/');			----> Put the inner directory name here under which the application is installed
+	define('APP_FOL','/projects/virtual_labs/');		----> Put the inner directory name here under which the application is installed
 
-9. And change the owner of all the files from root to nobody:nogroup.
+12. And change the owner of your projects dir from root to nobody:nogroup
+	sudo chown -R nobody:nogroup projects/
+
+13. Make all the php files executables by 
+	chmod -R +x *
+	
+14. Your lab is now running at ip/projects/virtual_labs.
+
+
+
+
+
+
