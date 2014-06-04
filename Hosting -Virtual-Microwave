@@ -37,7 +37,7 @@ Hosting Virtual Microwave Laboratory
 
 7. Now restart xampp server /opt/lampp/lampp restart.
 
-8. Create database by the name "sandeep4_virtual" in mysqldb.
+8. Create database by the name "sandeep4_virtual" in mysqldb, "/opt/lampp/bin/mysql -u root -p" --> "create database sandeep4_virtual;"
 
 9. Restore database "/opt/lampp/bin/mysql -u root -p sandeep4_virtual < sandeep4_virtual.sql"
 
